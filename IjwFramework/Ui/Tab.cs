@@ -5,9 +5,9 @@ using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace IjwFramework.TabStrip
+namespace IjwFramework.Ui
 {
-	public class Tab<T> : IDisposable
+	class Tab<T>
 	{
 		readonly T callTree;
 		Rectangle bounds;
@@ -43,22 +43,6 @@ namespace IjwFramework.TabStrip
 			bounds = new Rectangle(x, 0, width + 20, clientRect.Height);
 
 			x += 20 + width;
-		}
-
-		~Tab()
-		{
-			Dispose();
-		}
-
-		bool disposed;
-
-		public void Dispose()
-		{
-			if (disposed)
-				return;
-
-			disposed = true;
-			GC.SuppressFinalize(this);
 		}
 	}
 }

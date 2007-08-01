@@ -1,17 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using IjwFramework.Delegates;
 
-namespace IjwFramework.TabStrip
+namespace IjwFramework.Ui
 {
-	public class TabIterator<T>
+	class TabIterator<T>
 		where T : class
 	{
 		int index;
-		TabStripControl<T> outer;
+		TabStrip<T> outer;
 		Tab<T> current;
 
-		public TabIterator(TabStripControl<T> outer)
+		public TabIterator(TabStrip<T> outer)
 		{
 			this.outer = outer;
 			outer.Changed += delegate { Update(); };
@@ -53,10 +54,10 @@ namespace IjwFramework.TabStrip
 				index = outer.IndexOf(value);
 				current = value;
 				outer.Invalidate();
-				Changed(this, EventArgs.Empty);
+				Changed();
 			}
 		}
 
-		public event EventHandler Changed = delegate { };
+		public event Action Changed = delegate { };
 	}
 }

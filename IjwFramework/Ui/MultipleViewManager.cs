@@ -4,12 +4,12 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace IjwFramework.TabStrip
+namespace IjwFramework.Ui
 {
 	public class MultipleViewManager
 	{
 		internal readonly Control host;
-		readonly TabStripControl<ViewBase> tabStrip = new TabStripControl<ViewBase>();
+		readonly TabStrip<ViewBase> tabStrip = new TabStrip<ViewBase>();
 
 		ViewBase currentView = null;
 
@@ -44,7 +44,7 @@ namespace IjwFramework.TabStrip
 			tabStrip.Bounds = new Rectangle(0, 0, host.ClientSize.Width, 20);
 
 			tabStrip.Changed += delegate { OnViewChanged(); };
-			tabStrip.Iterator.Changed += delegate { OnViewChanged(); };
+			tabStrip.CurrentTabChanged += delegate { OnViewChanged(); };
 		}
 
 		public void Add(ViewBase v) { tabStrip.Add(v); }

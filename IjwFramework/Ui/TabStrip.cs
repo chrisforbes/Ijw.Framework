@@ -4,31 +4,36 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Drawing;
+using IjwFramework.Delegates;
+using IjwFramework.Ui;
 
-namespace IjwFramework.TabStrip
+namespace IjwFramework.Ui
 {
-	public class TabStripControl<T> : Control
+	public class TabStrip<T> : Control
 		where T : class
 	{
 		readonly List<Tab<T>> tabs = new List<Tab<T>>();
 		readonly TabIterator<T> iterator;
 
-		public TabIterator<T> Iterator { get { return iterator; } }
 		public int Count { get { return tabs.Count; } }
 
-		CloseBox<T> closeBox;
+		CloseBox closeBox;
 
-		public event EventHandler Changed = delegate { };
+		public event Action Changed = delegate { };
+		public event Action CurrentTabChanged = delegate { };
 
-		public TabStripControl()
+		public TabStrip()
 		{
 			BackColor = SystemColors.ButtonFace;
 			SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
 			UpdateStyles();
 
-			closeBox = new CloseBox<T>(this);
-			closeBox.CloseClicked += delegate { CloseCurrent(); };
+			closeBox = new CloseBox(this);
+			closeBox.Clicked += delegate { CloseCurrent(); };
 			iterator = new TabIterator<T>(this);
+			iterator.Changed += CurrentTabChanged;
+
+			Changed += delegate { closeBox.Visible = (Current != null); };
 		}
 
 		public IEnumerable<T> Items
@@ -54,19 +59,16 @@ namespace IjwFramework.TabStrip
 
 		internal Tab<T> GetTab(int index)
 		{
-			if (index < 0)
-				return null;
-
-			return tabs[index];
+			return index < 0 ? 
+				null : tabs[index];
 		}
 
 		public T Current
 		{
 			get
 			{
-				if (iterator.Current == null)
-					return null;
-				return iterator.Current.Content;
+				return iterator.Current == null ? 
+					null : iterator.Current.Content;
 			}
 		}
 
@@ -76,7 +78,7 @@ namespace IjwFramework.TabStrip
 			if (tab == null)
 				tabs.Add(tab = new Tab<T>(item, this));
 
-			Changed(this, EventArgs.Empty);
+			Changed();
 			Select( item );
 		}
 
@@ -86,6 +88,9 @@ namespace IjwFramework.TabStrip
 			if( tab != null )
 				iterator.Current = tab;
 		}
+
+		public void SelectNext() { iterator.MoveNext(); }
+		public void SelectPrevious() { iterator.MovePrevious(); }
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
@@ -131,19 +136,19 @@ namespace IjwFramework.TabStrip
 		{
 			tabs.Clear();
 			iterator.Current = null;
-			Changed(this, EventArgs.Empty);
+			Changed();
 			return true;
 		}
 
 		public void Close(T item)
 		{
-			if (item == null)
-				return;
-			Tab<T> tab = GetTab(item);
-			tabs.Remove(tab);
-			tab.Dispose();
-			Changed(this, EventArgs.Empty);
-			Invalidate();
+			if (item != null)
+			{
+				Tab<T> tab = GetTab(item);
+				tabs.Remove(tab);
+				Changed();
+				Invalidate();
+			}
 		}
 
 		Tab<T> GetTab(Point p)

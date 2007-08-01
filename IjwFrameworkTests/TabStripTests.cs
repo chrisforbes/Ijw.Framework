@@ -2,14 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using NUnit.Framework;
-using IjwFramework.TabStrip;
+using IjwFramework.Ui;
 
 namespace IjwFrameworkTests
 {
 	[TestFixture]
 	public class TabStripTests
 	{
-		TabStripControl<string> tabControl = new TabStripControl<string>();
+		TabStrip<string> tabControl = new TabStrip<string>();
 		static string value1 = "Foo", value2 = "Bar", value3 = "schwartz";
 		
 		[Test]
@@ -46,19 +46,6 @@ namespace IjwFrameworkTests
 			List<string> values = new List<string>();
 			values.AddRange(tabControl.Items);
 			CollectionAssert.AreEqual(tabs, values);
-		}
-
-		[Test]
-		public void TabStripTest4()
-		{
-			tabControl.Add(value1);
-			tabControl.Add(value2);
-			TabIterator<string> iterator = tabControl.Iterator;
-			Assert.AreEqual(value2, iterator.Current.Content);
-			iterator.MovePrevious();
-			Assert.AreEqual(value1, iterator.Current.Content);
-			iterator.MoveNext();
-			Assert.AreEqual(value2, iterator.Current.Content);
 		}
 	}
 }

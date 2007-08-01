@@ -35,18 +35,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\PriorityQueue.cs" />
+    <Compile Include="Collections\Set.cs" />
+    <Compile Include="Collections\SharedStack.cs" />
     <Compile Include="Delegates\Delegates.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TabStrip\CloseBox.cs" />
-    <Compile Include="TabStrip\MultipleViewManager.cs" />
-    <Compile Include="TabStrip\Tab.cs" />
-    <Compile Include="TabStrip\TabIterator.cs" />
-    <Compile Include="TabStrip\TabStripControl.cs">
+    <Compile Include="Ui\CloseBox.cs" />
+    <Compile Include="Ui\EmbeddedScrollBar.cs" />
+    <Compile Include="Ui\MenuBuilder.cs" />
+    <Compile Include="Ui\MultipleViewManager.cs" />
+    <Compile Include="Ui\ScrollableView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TabStrip\ViewBase.cs" />
-    <Compile Include="TabStrip\WebView.cs" />
+    <Compile Include="Ui\Tab.cs" />
+    <Compile Include="Ui\TabIterator.cs" />
+    <Compile Include="Ui\TabStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ui\ToolbarBuilder.cs" />
+    <Compile Include="Ui\ToolStripGap.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ui\ViewBase.cs" />
+    <Compile Include="Ui\WebView.cs" />
+    <Compile Include="Types\Enum.cs" />
     <Compile Include="Types\Pair.cs" />
+    <Compile Include="Ui\PanelHeader.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
