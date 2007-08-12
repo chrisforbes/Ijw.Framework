@@ -18,6 +18,9 @@ namespace IjwFramework.Ui
 
 		void OnViewChanged()
 		{
+			if (currentView == tabStrip.Current)
+				return;
+
 			if (currentView != null)
 				currentView.Hide();
 
@@ -43,8 +46,8 @@ namespace IjwFramework.Ui
 			tabStrip.Anchor = TopEdge;
 			tabStrip.Bounds = new Rectangle(0, 0, host.ClientSize.Width, 20);
 
-			tabStrip.Changed += delegate { OnViewChanged(); };
-			tabStrip.CurrentTabChanged += delegate { OnViewChanged(); };
+			tabStrip.Changed += OnViewChanged;
+			tabStrip.CurrentTabChanged += OnViewChanged;
 		}
 
 		public void Add(ViewBase v) { tabStrip.Add(v); }

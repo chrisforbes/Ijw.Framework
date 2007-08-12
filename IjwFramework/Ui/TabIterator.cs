@@ -20,13 +20,13 @@ namespace IjwFramework.Ui
 
 		void Update()
 		{
-			int newIndex = outer.IndexOf(current);
+			int newIndex = outer.IndexOf(Current);
 			if (newIndex >= 0)
 				index = newIndex;
 			else
 			{
 				Current = outer.GetTab(Math.Min(index, outer.Count - 1));
-				index = outer.IndexOf(current);
+				index = outer.IndexOf(Current);
 			}
 		}
 
@@ -34,16 +34,12 @@ namespace IjwFramework.Ui
 		{
 			index = (index + 1 < outer.Count) ? index + 1 : 0;
 			Current = outer.GetTab(index);
-
-			outer.Invalidate();
 		}
 
 		public void MovePrevious()
 		{
 			index = (index > 0) ? index - 1 : outer.Count - 1;
 			Current = outer.GetTab(index);
-
-			outer.Invalidate();
 		}
 
 		public Tab<T> Current

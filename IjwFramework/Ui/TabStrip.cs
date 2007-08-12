@@ -31,7 +31,7 @@ namespace IjwFramework.Ui
 			closeBox = new CloseBox(this);
 			closeBox.Clicked += delegate { CloseCurrent(); };
 			iterator = new TabIterator<T>(this);
-			iterator.Changed += CurrentTabChanged;
+			iterator.Changed += delegate { CurrentTabChanged(); };
 
 			Changed += delegate { closeBox.Visible = (Current != null); };
 		}
