@@ -10,10 +10,15 @@ namespace IjwFramework.Ui
 	{
 		readonly EmbeddedScrollBar horizontalScrollBar, verticalScrollBar;
 
-		public ScrollableView()
+		public ScrollableView( bool horizontal, bool vertical )
 		{
-			horizontalScrollBar = new EmbeddedScrollBar(this, ScrollOrientation.HorizontalScroll);
-			verticalScrollBar = new EmbeddedScrollBar(this, ScrollOrientation.VerticalScroll);
+			horizontalScrollBar = horizontal ? new EmbeddedScrollBar(this, ScrollOrientation.HorizontalScroll) : null;
+			verticalScrollBar = vertical ? verticalScrollBar = new EmbeddedScrollBar(this, ScrollOrientation.VerticalScroll) : null;
+		}
+
+		public ScrollableView()
+			: this(true, true)
+		{
 		}
 
 		public EmbeddedScrollBar HorizontalScroll { get { return horizontalScrollBar; } }
@@ -27,7 +32,12 @@ namespace IjwFramework.Ui
 				const int WS_HSCROLL = 0x00100000;
 
 				CreateParams p = base.CreateParams;
-				p.Style |= WS_VSCROLL | WS_HSCROLL;
+
+				if (horizontalScrollBar != null)
+					p.Style |= WS_HSCROLL;
+				if (verticalScrollBar != null)
+					p.Style |= WS_VSCROLL;
+
 				return p;
 			}
 		}
@@ -41,13 +51,15 @@ namespace IjwFramework.Ui
 			{
 				case WM_HSCROLL:
 					{
-						horizontalScrollBar.HandleMessage(m);
+						if (horizontalScrollBar != null)
+							horizontalScrollBar.HandleMessage(m);
 						break;
 					}
 
 				case WM_VSCROLL:
 					{
-						verticalScrollBar.HandleMessage(m);
+						if (verticalScrollBar != null)
+							verticalScrollBar.HandleMessage(m);
 						break;
 					}
 			}
