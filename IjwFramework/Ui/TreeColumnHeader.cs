@@ -30,9 +30,9 @@ namespace IjwFramework.Ui
 			int a2 = Height / 4;
 			int a1 = 3 * a2;
 
-			e.Graphics.FillRectangle(Brushes.Gainsboro, ClientRectangle);
+			e.Graphics.FillRectangle(Brushes.White, ClientRectangle);
 			using (Brush b = new LinearGradientBrush(new Point(0, a1 - 1), 
-				new Point(0, Height), Color.Gainsboro, Color.Gray))
+				new Point(0, Height), Color.White, SystemColors.ButtonFace))
 				e.Graphics.FillRectangle(b, 0, a1, Width, a2);
 
 			Painter painter = new Painter(e.Graphics, new Rectangle(new Point(), ClientSize));
@@ -44,7 +44,8 @@ namespace IjwFramework.Ui
 		void RenderColumnHeader(IColumn c, Painter p, Node n)
 		{
 			p.SetPosition(c.Left);
-			p.DrawSeparatorLine(Pens.Black);
+			if (c.Left > 0)
+				p.DrawSeparatorLine(Pens.Black);
 			p.Pad(4);
 			p.DrawString(c.Name, Font, Brushes.Black, 3, c.Left + c.Width);
 		}
