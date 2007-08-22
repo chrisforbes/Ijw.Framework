@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
-using IjwFramework.Ui.Tree;
 
-namespace IjwFramework.Ui.Tree
+namespace IjwFramework.Ui
 {
-	public class ItemPainter
+	class ItemPainter
 	{
 		public Graphics g;
 		static readonly Brush selectedBrush = new SolidBrush(Color.FromArgb(0xee, 0xee, 0xff));

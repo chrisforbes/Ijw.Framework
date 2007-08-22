@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing;
 
-namespace IjwFramework.Ui.Tree
+namespace IjwFramework.Ui
 {
 	public class Scroller
 	{

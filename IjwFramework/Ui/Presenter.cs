@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using IjwFramework.Delegates;
 
-namespace IjwFramework.Ui.Tree
+namespace IjwFramework.Ui
 {
-	public delegate void RowOperation( int first, int count );
-
-	public class Presenter
+	class Presenter
 	{
 		public RootNode root;
 		int rows = 0;
@@ -51,8 +50,8 @@ namespace IjwFramework.Ui.Tree
 			return -1;
 		}
 
-		public event RowOperation RowsInserted = delegate { };
-		public event RowOperation RowsRemoved = delegate { };
+		public event Action<int,int> RowsInserted = delegate { };
+		public event Action<int,int> RowsRemoved = delegate { };
 
 		void OnNodeExpanded(Node n)
 		{

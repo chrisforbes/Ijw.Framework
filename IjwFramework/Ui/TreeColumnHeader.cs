@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace IjwFramework.Ui.Tree
+namespace IjwFramework.Ui
 {
 	public class TreeColumnHeader : Control
 	{

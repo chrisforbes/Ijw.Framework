@@ -5,11 +5,11 @@ using System.Windows.Forms;
 using System.Drawing;
 using IjwFramework.Ui;
 
-namespace IjwFramework.Ui.Tree
+namespace IjwFramework.Ui
 {
 	public class TreeControl : ScrollableView
 	{
-		public RootNode Root { get { return root; }}
+		public Node Root { get { return root; }}
 		readonly ItemPainter painter;
 		readonly RootNode root = new RootNode();
 		Presenter presenter;

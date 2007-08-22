@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using IjwFramework.Delegates;
 
-namespace IjwFramework.Ui.Tree
+namespace IjwFramework.Ui
 {
 	public class ColumnCollection
 	{

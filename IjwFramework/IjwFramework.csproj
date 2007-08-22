@@ -58,21 +58,21 @@
     <Compile Include="Ui\ToolStripGap.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Ui\Tree\AutoWidthColumn.cs" />
-    <Compile Include="Ui\Tree\ColumnCollection.cs" />
-    <Compile Include="Ui\Tree\FixedWidthColumn.cs" />
-    <Compile Include="Ui\Tree\IColumn.cs" />
-    <Compile Include="Ui\Tree\ImageProvider.cs" />
-    <Compile Include="Ui\Tree\ItemPainter.cs" />
-    <Compile Include="Ui\Tree\Node.cs" />
-    <Compile Include="Ui\Tree\Painter.cs" />
-    <Compile Include="Ui\Tree\Presenter.cs" />
-    <Compile Include="Ui\Tree\RootNode.cs" />
-    <Compile Include="Ui\Tree\Scroller.cs" />
-    <Compile Include="Ui\Tree\TreeColumnHeader.cs">
+    <Compile Include="Ui\AutoWidthColumn.cs" />
+    <Compile Include="Ui\ColumnCollection.cs" />
+    <Compile Include="Ui\FixedWidthColumn.cs" />
+    <Compile Include="Ui\IColumn.cs" />
+    <Compile Include="Ui\ImageProvider.cs" />
+    <Compile Include="Ui\ItemPainter.cs" />
+    <Compile Include="Ui\Node.cs" />
+    <Compile Include="Ui\Painter.cs" />
+    <Compile Include="Ui\Presenter.cs" />
+    <Compile Include="Ui\RootNode.cs" />
+    <Compile Include="Ui\Scroller.cs" />
+    <Compile Include="Ui\TreeColumnHeader.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Ui\Tree\TreeControl.cs">
+    <Compile Include="Ui\TreeControl.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Ui\ViewBase.cs" />

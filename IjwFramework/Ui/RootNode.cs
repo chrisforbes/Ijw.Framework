@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace IjwFramework.Ui.Tree
+namespace IjwFramework.Ui
 {
-	public class RootNode : Node
+	class RootNode : Node
 	{
 		public event Action<Node> NodeExpanded = delegate { };
 		public event Action<Node> NodeCollapsed = delegate { };
