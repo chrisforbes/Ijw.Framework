@@ -6,13 +6,16 @@ namespace IjwFramework.Delegates
 	public delegate T Provider<T>();
 	public delegate T Provider<T, U>(U u);
 	public delegate T Provider<T, U, V>(U u, V v);
+
 	public delegate void Action();
+	public delegate void Action<T,U>(T t, U u);
+	public delegate void Action<T,U,V>(T t, U u, V v);
 
 	// predicates, and simple combinators over predicates
 
 	public static class Predicates
 	{
-		public static bool Always<T>( T ignored ) { return true; }
+		public static bool Always<T>(T ignored) { return true; }
 		public static bool Never<T>(T ignored) { return false; }
 
 		public static Predicate<T> Or<T>(params Predicate<T>[] a)

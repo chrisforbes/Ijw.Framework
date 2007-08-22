@@ -18,6 +18,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -26,6 +27,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -54,6 +56,23 @@
     </Compile>
     <Compile Include="Ui\ToolbarBuilder.cs" />
     <Compile Include="Ui\ToolStripGap.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ui\Tree\AutoWidthColumn.cs" />
+    <Compile Include="Ui\Tree\ColumnCollection.cs" />
+    <Compile Include="Ui\Tree\FixedWidthColumn.cs" />
+    <Compile Include="Ui\Tree\IColumn.cs" />
+    <Compile Include="Ui\Tree\ImageProvider.cs" />
+    <Compile Include="Ui\Tree\ItemPainter.cs" />
+    <Compile Include="Ui\Tree\Node.cs" />
+    <Compile Include="Ui\Tree\Painter.cs" />
+    <Compile Include="Ui\Tree\Presenter.cs" />
+    <Compile Include="Ui\Tree\RootNode.cs" />
+    <Compile Include="Ui\Tree\Scroller.cs" />
+    <Compile Include="Ui\Tree\TreeColumnHeader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ui\Tree\TreeControl.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Ui\ViewBase.cs" />
