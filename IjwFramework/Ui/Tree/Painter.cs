@@ -23,6 +23,9 @@ namespace IjwFramework.Ui.Tree
 		{
 			this.g = g;
 			this.bounds = bounds;
+
+			sf.Trimming = StringTrimming.EllipsisCharacter;
+			sf.FormatFlags |= StringFormatFlags.LineLimit;
 		}
 
 		public void Pad(int pixels)
@@ -40,17 +43,22 @@ namespace IjwFramework.Ui.Tree
 
 		public void DrawString(string s, Font f, Brush b)
 		{
-			DrawString(s, f, b, 0);
+			DrawString(s, f, b, 0, bounds.Right);
 		}
 
-		public void DrawString(string s, Font f, Brush b, int yofs)
+		public void DrawString(string s, Font f, Brush b, int yofs, int maxx)
 		{
-			if (x >= bounds.Width)
+			if (x >= bounds.Width || x >= maxx)
 				return;
 
-			int width = (int)g.MeasureString(s, f, bounds.Width, sf).Width;
-			g.DrawString(s, f, b, bounds.Left + x, bounds.Top + yofs, sf);
-			x += width;
+			if (Alignment == StringAlignment.Near)
+			{
+				int width = (int)g.MeasureString(s, f, bounds.Width, sf).Width;
+				g.DrawString(s, f, b, new Rectangle( bounds.Left + x, bounds.Top + yofs, maxx - x, bounds.Height ), sf);
+				x += width;
+			}
+			else
+				g.DrawString(s, f, b, bounds.Left + x, bounds.Top + yofs, sf);
 		}
 
 		public void DrawImage(Image i)

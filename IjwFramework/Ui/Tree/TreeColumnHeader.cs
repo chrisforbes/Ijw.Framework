@@ -46,7 +46,7 @@ namespace IjwFramework.Ui.Tree
 			p.SetPosition(c.Left);
 			p.DrawSeparatorLine(Pens.Black);
 			p.Pad(4);
-			p.DrawString(c.Name, Font, Brushes.Black, 3);
+			p.DrawString(c.Name, Font, Brushes.Black, 3, c.Left + c.Width);
 		}
 	}
 }

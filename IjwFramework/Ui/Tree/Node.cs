@@ -36,12 +36,12 @@ namespace IjwFramework.Ui.Tree
 
 		public void Collapse()
 		{
-			if (IsLeaf)
-				return;
-
-			RootNode root = Root as RootNode;
-			if (root != null)
-				root.NotifyNodeCollapsed(this);
+			if (!IsLeaf)
+			{
+				RootNode root = Root as RootNode;
+				if (root != null)
+					root.NotifyNodeCollapsed(this);
+			}
 
 			expanded = false;
 		}

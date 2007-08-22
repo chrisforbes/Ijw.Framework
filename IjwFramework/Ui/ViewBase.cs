@@ -18,14 +18,17 @@ namespace IjwFramework.Ui
 
 		public void Show()
 		{
-			host.host.Controls.Add(self);
 			self.Anchor = MultipleViewManager.ClientArea;
 			self.Bounds = host.ViewBounds;
+
+			host.host.Controls.Add(self);
+			self.Visible = true;
 		}
 
 		public void Hide()
 		{
 			host.host.Controls.Remove(self);
+			self.Visible = false;
 		}
 	}
 }

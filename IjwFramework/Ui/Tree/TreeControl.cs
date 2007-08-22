@@ -20,7 +20,11 @@ namespace IjwFramework.Ui.Tree
 		int selected = 0;
 		int scroll = 0;
 
-		public Node SelectedNode { get { return presenter.GetRow(selected); } }
+		public Node SelectedNode
+		{
+			get { return presenter.GetRow(selected); }
+			set { SelectedIndex = presenter.IndexOf(value); }
+		}
 
 		public int SelectedIndex
 		{
@@ -39,6 +43,12 @@ namespace IjwFramework.Ui.Tree
 		protected override void OnResize(EventArgs e)
 		{
 			base.OnResize(e);
+			Invalidate();
+		}
+
+		protected override void OnParentChanged(EventArgs e)
+		{
+			base.OnParentChanged(e);
 			Invalidate();
 		}
 
