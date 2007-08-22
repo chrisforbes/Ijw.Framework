@@ -66,7 +66,6 @@ namespace IjwFramework.Ui.Tree
 			presenter.RowsRemoved += OnRowsRemoved;
 
 			SetStyle(ControlStyles.Selectable, true);
-			SetStyle(ControlStyles.AllPaintingInWmPaint, true);
 			SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
 			
 			UpdateStyles();
@@ -126,12 +125,6 @@ namespace IjwFramework.Ui.Tree
 				Node n = presenter.GetRow(row);
 				if (n != null)
 					PaintRow(e.Graphics, n, row);
-			}
-
-			if (last * rowHeight < e.ClipRectangle.Bottom)
-			{
-				e.Graphics.FillRectangle(SystemBrushes.Window,
-					new Rectangle( 0, (last - scroll) * rowHeight, ClientSize.Width, e.ClipRectangle.Bottom - last * rowHeight));
 			}
 
 			base.OnPaint(e);
