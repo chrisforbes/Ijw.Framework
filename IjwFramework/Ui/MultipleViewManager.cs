@@ -54,5 +54,8 @@ namespace IjwFramework.Ui
 		public void Select(ViewBase v) { tabStrip.Select(v); }
 		public void Invalidate() { tabStrip.Invalidate(); }
 		public ViewBase Current { get { return currentView; } }
+
+		public void MoveNext() { tabStrip.SelectNext(); }
+		public void MovePrevious() { tabStrip.SelectPrevious(); }
 	}
 }
