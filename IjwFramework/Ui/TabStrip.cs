@@ -103,9 +103,14 @@ namespace IjwFramework.Ui
 				SystemColors.ButtonShadow,
 				ButtonBorderStyle.Solid);
 
+			Region oldClip = e.Graphics.Clip;
+			e.Graphics.IntersectClip(new Rectangle(0, 0, Width - Height, Height));
+
 			int x = 1;
 			foreach (Tab<T> d in tabs)
 				d.Paint(g, ref x, iterator.Current == d, ClientRectangle);
+
+			e.Graphics.Clip = oldClip;
 
 			closeBox.Paint(g);
 		}
