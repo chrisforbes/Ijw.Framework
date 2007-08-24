@@ -82,6 +82,12 @@
     <Compile Include="Ui\PanelHeader.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Updates\IUpdateProvider.cs" />
+    <Compile Include="Updates\MockUpdateProvider.cs" />
+    <Compile Include="Updates\Tests.cs" />
+    <Compile Include="Updates\UpdateInfo.cs" />
+    <Compile Include="Updates\UpdateManager.cs" />
+    <Compile Include="Updates\XmlUpdateProvider.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
