@@ -14,14 +14,14 @@ namespace IjwFramework.Updates
 
 		string Version { get { return version.ToString(); } }
 
-		internal UpdateManager(string productName, string version, IUpdateProvider updateProvider)
+		public UpdateManager(string productName, string version, IUpdateProvider updateProvider)
 		{
 			this.productName = productName;
 			this.version = new Version(version);
 			this.updateProvider = updateProvider;
 		}
 
-		internal UpdateInfo Update()
+		public UpdateInfo Update()
 		{
 			UpdateInfo info = updateProvider.GetLatestVersion(productName);
 			return (info == null || info.Version <= version) ? null : info;

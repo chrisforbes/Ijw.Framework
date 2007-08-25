@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using IjwFramework.Updates;
 
-namespace IjwFramework.Updates
+namespace IjwFrameworkTests
 {
 	class MockUpdateProvider : IUpdateProvider
 	{

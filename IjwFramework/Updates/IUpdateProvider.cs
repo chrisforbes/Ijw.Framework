@@ -4,7 +4,7 @@ using System.Text;
 
 namespace IjwFramework.Updates
 {
-	interface IUpdateProvider
+	public interface IUpdateProvider
 	{
 		UpdateInfo GetLatestVersion(string productName);
 	}

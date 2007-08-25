@@ -83,8 +83,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Updates\IUpdateProvider.cs" />
-    <Compile Include="Updates\MockUpdateProvider.cs" />
-    <Compile Include="Updates\Tests.cs" />
     <Compile Include="Updates\UpdateInfo.cs" />
     <Compile Include="Updates\UpdateManager.cs" />
     <Compile Include="Updates\XmlUpdateProvider.cs" />

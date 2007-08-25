@@ -4,7 +4,7 @@ using System.Text;
 
 namespace IjwFramework.Updates
 {
-	class UpdateInfo
+	public class UpdateInfo
 	{
 		readonly string productName;
 		readonly Version version;
