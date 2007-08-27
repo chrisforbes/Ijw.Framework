@@ -57,5 +57,7 @@ namespace IjwFramework.Ui
 
 		public void MoveNext() { tabStrip.SelectNext(); }
 		public void MovePrevious() { tabStrip.SelectPrevious(); }
+
+		public void CloseCurrent() { tabStrip.CloseCurrent(); }
 	}
 }
