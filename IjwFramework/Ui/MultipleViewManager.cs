@@ -13,9 +13,6 @@ namespace IjwFramework.Ui
 
 		ViewBase currentView = null;
 
-		public const AnchorStyles TopEdge = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
-		public const AnchorStyles ClientArea = TopEdge | AnchorStyles.Bottom;
-
 		void OnViewChanged()
 		{
 			if (currentView == tabStrip.Current)
@@ -43,7 +40,7 @@ namespace IjwFramework.Ui
 
 			host.BackColor = SystemColors.AppWorkspace;
 			host.Controls.Add(tabStrip);
-			tabStrip.Anchor = TopEdge;
+			tabStrip.Anchor = AnchorUtil.TopEdge;
 			tabStrip.Bounds = new Rectangle(0, 0, host.ClientSize.Width, 20);
 
 			tabStrip.Changed += OnViewChanged;

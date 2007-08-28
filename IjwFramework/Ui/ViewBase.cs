@@ -18,7 +18,7 @@ namespace IjwFramework.Ui
 
 		public void Show()
 		{
-			self.Anchor = MultipleViewManager.ClientArea;
+			self.Anchor = AnchorUtil.ClientArea;
 			self.Bounds = host.ViewBounds;
 
 			host.host.Controls.Add(self);
