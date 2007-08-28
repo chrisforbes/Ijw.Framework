@@ -46,6 +46,7 @@ namespace IjwFramework.Updates
 			try
 			{
 				WebClient wc = new WebClient();
+				wc.Headers.Add(HttpRequestHeader.Referer, "http://update.ijw.co.nz/");
 				string content = wc.DownloadString(uri);
 
 				XmlDocument document = new XmlDocument();
