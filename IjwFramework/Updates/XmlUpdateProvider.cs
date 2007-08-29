@@ -6,7 +6,7 @@ using System.Net;
 
 namespace IjwFramework.Updates
 {
-	class XmlUpdateProvider : IUpdateProvider
+	public class XmlUpdateProvider : IUpdateProvider
 	{
 		XmlDocument doc = new XmlDocument();
 
