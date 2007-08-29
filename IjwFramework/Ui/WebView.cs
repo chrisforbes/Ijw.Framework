@@ -25,5 +25,10 @@ namespace IjwFramework.Ui
 			browser.Navigated += delegate { host.Invalidate(); };
 			browser.Navigate(new Uri(uri));
 		}
+
+		public void Refresh()
+		{
+			browser.Refresh(WebBrowserRefreshOption.Completely);
+		}
 	}
 }
