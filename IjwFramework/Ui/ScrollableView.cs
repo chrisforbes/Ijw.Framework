@@ -13,7 +13,7 @@ namespace IjwFramework.Ui
 		public ScrollableView( bool horizontal, bool vertical )
 		{
 			horizontalScrollBar = horizontal ? new EmbeddedScrollBar(this, ScrollOrientation.HorizontalScroll) : null;
-			verticalScrollBar = vertical ? verticalScrollBar = new EmbeddedScrollBar(this, ScrollOrientation.VerticalScroll) : null;
+			verticalScrollBar = vertical ? new EmbeddedScrollBar(this, ScrollOrientation.VerticalScroll) : null;
 		}
 
 		public ScrollableView()

@@ -22,6 +22,8 @@ namespace IjwFramework.Ui
 			if (controller != null)
 				browser.ObjectForScripting = controller;
 
+			browser.IsWebBrowserContextMenuEnabled = false;
+
 			browser.Navigated += delegate { host.Invalidate(); };
 			browser.Navigate(new Uri(uri));
 		}
