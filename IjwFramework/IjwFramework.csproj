@@ -42,6 +42,7 @@
     <Compile Include="Collections\SharedStack.cs" />
     <Compile Include="Delegates\Delegates.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\PairComparison.cs" />
     <Compile Include="Ui\AnchorUtil.cs" />
     <Compile Include="Ui\CloseBox.cs" />
     <Compile Include="Ui\EmbeddedScrollBar.cs" />
