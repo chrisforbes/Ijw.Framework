@@ -40,5 +40,11 @@ namespace IjwFramework.Types
 		{
 			return First.GetHashCode() ^ Second.GetHashCode();
 		}
+
+		public Pair<T, U> WithFirst(T t) { return new Pair<T, U>(t, Second); }
+		public Pair<T, U> WithSecond(U u) { return new Pair<T, U>(First, u); }
+
+		public static T AsFirst(Pair<T, U> p) { return p.First; }
+		public static U AsSecond(Pair<T, U> p) { return p.Second; }
 	}
 }
