@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections;
 
 namespace IjwFramework.Collections
 {
@@ -16,7 +17,7 @@ namespace IjwFramework.Collections
 		}
 	}
 
-	public class SharedStack<T>
+	public class SharedStack<T> : IEnumerable<T>
 	{
 		StackNode<T> top;
 
@@ -46,6 +47,24 @@ namespace IjwFramework.Collections
 		public bool Empty { get { return top == null; } }
 
 		public SharedStack() { }
-		public SharedStack(SharedStack<T> other) { top = other.top; }
+		public SharedStack(SharedStack<T> other)
+		{
+			if (other != null)
+				top = other.top;
+		}
+
+		public IEnumerator<T> GetEnumerator() { return Iterate().GetEnumerator(); }
+
+		IEnumerable<T> Iterate()
+		{
+			StackNode<T> x = top;
+			while (x != null)
+			{
+				yield return x.item;
+				x = x.next;
+			}
+		}
+
+		IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
 	}
 }
