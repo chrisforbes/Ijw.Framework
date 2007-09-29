@@ -152,4 +152,17 @@ namespace IjwFramework.Ui
 			}
 		}
 	}
+
+	public class Node<T> : Node
+	{
+		readonly T value;
+
+		public T Value { get { return value; } }
+
+		public Node(T value)
+			: base()
+		{
+			this.value = value;
+		}
+	}
 }
