@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace IjwFramework.Updates
+namespace Ijw.Updates
 {
 	public interface IUpdateProvider
 	{

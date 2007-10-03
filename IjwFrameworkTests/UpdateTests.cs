@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using NUnit.Framework;
-using IjwFramework.Updates;
+using Ijw.Updates;
 
 namespace IjwFrameworkTests
 {

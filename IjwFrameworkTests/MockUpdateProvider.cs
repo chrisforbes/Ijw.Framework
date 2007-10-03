@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using IjwFramework.Updates;
+using Ijw.Updates;
 
 namespace IjwFrameworkTests
 {

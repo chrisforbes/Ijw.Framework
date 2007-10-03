@@ -4,7 +4,7 @@ using System.Text;
 using System.Xml;
 using System.Net;
 
-namespace IjwFramework.Updates
+namespace Ijw.Updates
 {
 	public class XmlUpdateProvider : IUpdateProvider
 	{
