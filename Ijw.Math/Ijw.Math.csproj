@@ -35,7 +35,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Matrix.cs" />
-    <Compile Include="Matrix3.cs" />
     <Compile Include="Quaternion.cs" />
     <Compile Include="Vector2.cs" />
     <Compile Include="Vector3.cs" />

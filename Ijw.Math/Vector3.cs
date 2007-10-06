@@ -130,6 +130,11 @@ namespace Ijw.Math
 				a.z > b.z ? a.z : b.z);
 		}
 
+		public static Vector3 Lerp(float t, Vector3 a, Vector3 b)
+		{
+			return (1 - t) * a + t * b;
+		}
+
 		public Vector3 Constrain(Vector3 upper, Vector3 lower)
 		{
 			return Maximize(Minimize(this, upper), lower);
@@ -183,6 +188,11 @@ namespace Ijw.Math
 				2 * (float)randomStream.NextDouble() - 1,
 				2 * (float)randomStream.NextDouble() - 1,
 				2 * (float)randomStream.NextDouble() - 1);
+		}
+
+		public static Vector3 operator *(Vector3 v, Quaternion q)
+		{
+			return (q.Conjugate * v * q).Xyz;
 		}
 	}
 }

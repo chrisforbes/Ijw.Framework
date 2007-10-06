@@ -91,5 +91,7 @@ namespace Ijw.Math
 				return new Quaternion(x * inorm, y * inorm, z * inorm, w * inorm);
 			}
 		}
+
+		public Vector3 Xyz { get { return new Vector3(x, y, z); } }
 	}
 }
