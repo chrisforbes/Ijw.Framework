@@ -194,5 +194,25 @@ namespace Ijw.Math
 		{
 			return (q.Conjugate * v * q).Xyz;
 		}
+
+		public static Vector3 CatmullRom(float t, Vector3 v0, Vector3 v1, Vector3 v2, Vector3 v3)
+		{
+			float tt = t * t;
+			float ttt = tt * t;
+
+			return 0.5f * ((2 * v0) +
+				(v2 - v0) * t +
+				(2 * v0 - 5 * v1 + 4 * v2 - v3) * tt +
+				(-v0 + 3 * v1 - 3 * v2 + v3) * ttt);
+		}
+
+		public static Vector3 CatmullRomDeriv(float t, Vector3 v0, Vector3 v1, Vector3 v2, Vector3 v3)
+		{
+			float tt = t * t;
+
+			return 0.5f * ((v2 - v0) +
+				2 * (2 * v0 - 5 * v1 + 4 * v2 - v3) * t +
+				3 * (-v0 + 3 *v1 - 3 * v2 + v3) * tt);
+		}
 	}
 }

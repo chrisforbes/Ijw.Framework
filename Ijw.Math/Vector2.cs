@@ -131,6 +131,15 @@ namespace Ijw.Math
 				(-v0 + 3 * v1 - 3 * v2 + v3) * ttt);
 		}
 
+		public static Vector2 CatmullRomDeriv(float t, Vector2 v0, Vector2 v1, Vector2 v2, Vector2 v3)
+		{
+			float tt = t * t;
+
+			return 0.5f * ((v2 - v0) +
+				2 * (2 * v0 - 5 * v1 + 4 * v2 - v3) * t +
+				3 * (-v0 + 3 * v1 - 3 * v2 + v3) * tt);
+		}
+
 		public void Write(BinaryWriter writer)
 		{
 			writer.Write(x);

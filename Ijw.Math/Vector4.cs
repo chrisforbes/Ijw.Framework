@@ -41,9 +41,24 @@ namespace Ijw.Math
 			return new Vector4(a * b.x, a * b.y, a * b.z, a * b.w);
 		}
 
+		public static Vector4 operator *(Vector4 b, float a)
+		{
+			return new Vector4(a * b.x, a * b.y, a * b.z, a * b.w);
+		}
+
 		public static Vector4 operator +(Vector4 a, Vector4 b)
 		{
 			return new Vector4(a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w);
+		}
+
+		public static Vector4 operator -(Vector4 a, Vector4 b)
+		{
+			return new Vector4(a.x - b.x, a.y - b.y, a.z - b.z, a.w - b.w);
+		}
+
+		public static Vector4 operator -(Vector4 a)
+		{
+			return new Vector4(-a.x, -a.y, -a.z, -a.w);
 		}
 
 		public static Vector4 operator *(Vector4 a, Matrix m)
@@ -54,6 +69,26 @@ namespace Ijw.Math
 			Vector4 trans = new Vector4(m.TranslationVector, m.M44);
 
 			return a.x * right + a.y * up + a.z * forward + a.w * trans;
+		}
+
+		public static Vector4 CatmullRomDeriv(float t, Vector4 v0, Vector4 v1, Vector4 v2, Vector4 v3)
+		{
+			float tt = t * t;
+
+			return 0.5f * ((v2 - v0) +
+				2 * (2 * v0 - 5 * v1 + 4 * v2 - v3) * t +
+				3 * (-v0 + 3 * v1 - 3 * v2 + v3) * tt);
+		}
+
+		public static Vector4 CatmullRom(float t, Vector4 v0, Vector4 v1, Vector4 v2, Vector4 v3)
+		{
+			float tt = t * t;
+			float ttt = tt * t;
+
+			return 0.5f * ((2 * v0) +
+				(v2 - v0) * t +
+				(2 * v0 - 5 * v1 + 4 * v2 - v3) * tt +
+				(-v0 + 3 * v1 - 3 * v2 + v3) * ttt);
 		}
 	}
 }
