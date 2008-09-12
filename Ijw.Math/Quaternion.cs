@@ -93,5 +93,24 @@ namespace Ijw.Math
 		}
 
 		public Vector3 Xyz { get { return new Vector3(x, y, z); } }
+
+		public Matrix ToMatrix()
+		{
+			float xx2 = x * x * 2;
+			float yy2 = y * y * 2;
+			float zz2 = z * z * 2;
+			float xy2 = x * y * 2;
+			float zw2 = z * w * 2;
+			float xz2 = x * z * 2;
+			float yw2 = y * w * 2;
+			float yz2 = y * z * 2;
+			float xw2 = x * w * 2;
+
+			return new Matrix(
+				1 - yy2 - zz2, xy2 - zw2, xz2 + yw2, 0,
+				xy2 + zw2, 1 - xx2 - zz2, yz2 - xw2, 0,
+				xz2 - yw2, yz2 + xw2, 1 - xx2 - yy2, 0,
+				0, 0, 0, 1);
+		}
 	}
 }
