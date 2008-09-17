@@ -23,6 +23,7 @@ namespace IjwFramework.Ui
 
 			host.host.Controls.Add(self);
 			self.Visible = true;
+			Focus();
 		}
 
 		public void Hide()
@@ -30,5 +31,7 @@ namespace IjwFramework.Ui
 			host.host.Controls.Remove(self);
 			self.Visible = false;
 		}
+
+		protected virtual void Focus() {}
 	}
 }
