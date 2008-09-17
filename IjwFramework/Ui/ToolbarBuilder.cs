@@ -3,17 +3,24 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+using IjwFramework.Types;
 
 namespace IjwFramework.Ui
 {
 	public class ToolbarBuilder
 	{
-		ToolStrip toolstrip = new ToolStrip();
+		Lazy<ToolStrip> toolstrip;
 		Dictionary<string, Image> images;
 
 		public ToolbarBuilder(ToolStripContainer container, Dictionary<string, Image> images)
 		{
-			container.LeftToolStripPanel.Controls.Add(toolstrip);
+			toolstrip = Lazy.New(() =>
+			{
+				var ts = new ToolStrip();
+				container.LeftToolStripPanel.Controls.Add(ts);
+				return ts;
+			});
+
 			this.images = images;
 		}
 
@@ -22,7 +29,7 @@ namespace IjwFramework.Ui
 			if (string.IsNullOrEmpty(image))
 			{
 				ToolStripSeparator s = new ToolStripSeparator();
-				toolstrip.Items.Add(s);
+				toolstrip.Value.Items.Add(s);
 				return s;
 			}
 
@@ -30,7 +37,7 @@ namespace IjwFramework.Ui
 				string.IsNullOrEmpty(image) ? null : images[image], click);
 
 			button.DisplayStyle = ToolStripItemDisplayStyle.Image;
-			toolstrip.Items.Add(button);
+			toolstrip.Value.Items.Add(button);
 
 			return button;
 		}
