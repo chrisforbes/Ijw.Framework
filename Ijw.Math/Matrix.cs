@@ -122,6 +122,20 @@ namespace Ijw.Math
 				0, 0, o43, 0);
 		}
 
+		public static Matrix InversePerspective(float fov, float aspect, float nearClip, float farClip)
+		{
+			float ys = 1.0f / (float)Math.Tan(fov / 2);
+			float xs = ys / aspect;
+			float o33 = farClip / (farClip - nearClip);
+			float o43 = -nearClip * farClip / (farClip - nearClip);
+
+			return new Matrix(
+				1 / xs, 0, 0, 0,
+				0, 1 / ys, 0, 0,
+				0, 0, 0, 1 / o43,
+				0, 0, 1, -o33 / o43);
+		}
+
 		public static Matrix operator *(Matrix a, Matrix b)
 		{
 			Vector4 a1 = new Vector4(a.M11, a.M12, a.M13, a.M14);
