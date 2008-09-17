@@ -144,9 +144,15 @@ namespace IjwFramework.Ui
 			return true;
 		}
 
-		protected override void OnMouseClick(MouseEventArgs e)
+		public ContextMenuStrip HaxContextMenu
 		{
-			base.OnMouseClick(e);
+			get;
+			set;
+		}
+		
+
+		protected override void OnMouseDown(MouseEventArgs e)
+		{
 			Select();
 
 			int i = e.Y / rowHeight + scroll;
@@ -159,6 +165,11 @@ namespace IjwFramework.Ui
 
 			if (e.Button == MouseButtons.Left)
 				ExpanderClicked(e.Location, n);
+
+			if (e.Button == MouseButtons.Right && HaxContextMenu != null)
+				HaxContextMenu.Show(PointToScreen(e.Location));
+
+			base.OnMouseDown(e);
 		}
 
 		protected override void OnMouseDoubleClick(MouseEventArgs e)
