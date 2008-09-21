@@ -7,12 +7,6 @@ namespace IjwFramework.Delegates
 	public delegate T Provider<T, U>(U u);
 	public delegate T Provider<T, U, V>(U u, V v);
 
-	public delegate void Action();
-	public delegate void Action<T,U>(T t, U u);
-	public delegate void Action<T,U,V>(T t, U u, V v);
-	public delegate void Action<T,U,V,W>(T t, U u, V v, W w);
-	public delegate void Action<T,U,V,W,X>(T t, U u, V v, W w, X x);
-
 	// predicates, and simple combinators over predicates
 
 	public static class Predicates
