@@ -4,7 +4,6 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Drawing;
-using IjwFramework.Delegates;
 using IjwFramework.Ui;
 
 namespace IjwFramework.Ui
