@@ -214,5 +214,12 @@ namespace Ijw.Math
 				2 * (2 * v0 - 5 * v1 + 4 * v2 - v3) * t +
 				3 * (-v0 + 3 *v1 - 3 * v2 + v3) * tt);
 		}
+
+		public Vector3(Vector2 xy, float z)
+		{
+			x = xy.x;
+			y = xy.y;
+			this.z = z;
+		}
 	}
 }
