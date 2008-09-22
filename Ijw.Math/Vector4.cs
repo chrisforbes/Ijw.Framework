@@ -63,10 +63,10 @@ namespace Ijw.Math
 
 		public static Vector4 operator *(Vector4 a, Matrix m)
 		{
-			Vector4 right = new Vector4(m.RightVector, m.M14);
-			Vector4 up = new Vector4(m.UpVector, m.M24);
-			Vector4 forward = new Vector4(m.ForwardVector, m.M34);
-			Vector4 trans = new Vector4(m.TranslationVector, m.M44);
+			var right = new Vector4(m.RightVector, m.M14);
+			var up = new Vector4(m.UpVector, m.M24);
+			var forward = new Vector4(m.ForwardVector, m.M34);
+			var trans = new Vector4(m.TranslationVector, m.M44);
 
 			return a.x * right + a.y * up + a.z * forward + a.w * trans;
 		}
@@ -90,5 +90,16 @@ namespace Ijw.Math
 				(2 * v0 - 5 * v1 + 4 * v2 - v3) * tt +
 				(-v0 + 3 * v1 - 3 * v2 + v3) * ttt);
 		}
+
+		public static float Dot(Vector4 a, Vector4 b)
+		{
+			return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
+		}
+
+		public static float DotPoint(Vector3 a, Vector4 b)
+			{ return a.x * b.x + a.y * b.y + a.z * b.z + b.w; }	// a.w = 1
+
+		public static float DotNormal(Vector3 a, Vector4 b)
+			{ return a.x * b.x + a.y * b.y + a.z * b.z; }// a.w = 0
 	}
 }
