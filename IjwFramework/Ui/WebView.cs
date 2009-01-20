@@ -11,8 +11,9 @@ namespace IjwFramework.Ui
 
 		public override string ToString()
 		{
-			string s = browser.Document.Title;
-			return string.IsNullOrEmpty(s) ? "Loading..." : s;
+			return browser.DocumentTitle;
+			//string s = browser.Document.Title;
+			//return string.IsNullOrEmpty(s) ? "Loading..." : s;
 		}
 
 		public WebView(MultipleViewManager host, string uri, object controller)
