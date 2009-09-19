@@ -46,6 +46,8 @@ namespace IjwFramework.Types
 
 		public static T AsFirst(Pair<T, U> p) { return p.First; }
 		public static U AsSecond(Pair<T, U> p) { return p.Second; }
+
+        public Pair<U, T> Swap() { return Pair.New(Second, First); }
 	}
 
     public static class Pair
